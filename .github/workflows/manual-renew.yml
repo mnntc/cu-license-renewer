@@ -3,7 +3,7 @@ name: Manual Renew Licenses
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 11 * * 1' 
+    - cron: '50 13 * * 4' 
 
 jobs:
   renew:
