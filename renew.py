@@ -42,8 +42,10 @@ def borrow(driver: webdriver.Chrome, username: str, password: str, select_value:
     password_input = driver.find_element(By.ID, 'Password')
     password_input.send_keys(password)
 
-    signin_button = driver.find_element(By.XPATH, '//button')
-    signin_button.click()
+    signin_button = wait.until(
+    EC.element_to_be_clickable((By.XPATH, '//button[@type="submit"]'))
+    )
+    driver.execute_script("arguments[0].click();", signin_button)
 
     driver.get('https://licenseportal.it.chula.ac.th/Home/Borrow')
     
@@ -57,7 +59,10 @@ def borrow(driver: webdriver.Chrome, username: str, password: str, select_value:
     select = Select(select_element)
     select.select_by_value(select_value)
     
-    save_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
-    save_button.click()
+    save_button = wait.until(
+    EC.element_to_be_clickable((By.XPATH, '//button[@type="submit"]'))
+    )
+    driver.execute_script("arguments[0].scrollIntoView(true);", save_button)
+    driver.execute_script("arguments[0].click();", save_button)
 
     driver.get('https://licenseportal.it.chula.ac.th/Auth/Logout')
