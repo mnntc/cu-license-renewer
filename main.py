@@ -2,8 +2,8 @@ import json
 import os
 from renew import init_driver, borrow
 
-USERNAME = os.environ['USERNAME']
-PASSWORD = os.environ['PASSWORD']  
+USERNAME = os.environ['6638059221@student.chula.ac.th']
+PASSWORD = os.environ['36A7e3C2']  
 
 def main():
     f = open('software.json')
